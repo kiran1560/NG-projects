@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Generator | Gemini API</title>
+    <link rel="stylesheet" href="gemini.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .back-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            color: #dcdee0; 
+            text-decoration: none;
+            transition: color 0.3s ease; 
+        }
+        .back-icon:hover {
+            color: #0056b3; 
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="javascript:history.back()" class="back-icon" title="Go Back"><i class="fas fa-arrow-circle-left"></i></a> <!-- Font Awesome Back Icon -->
+
+        <h1 class="header-title">AI Content Generator</h1>
+        <p class="header-subtitle">Powered by Google Gemini API</p>
+    </header>
+
+    <main class="container">
+        <section class="api-setup card">
+            <h2>Gemini API Key Setup</h2>
+            <div class="input-group">
+                <label for="geminiApiKey">Enter your Gemini API Key:</label>
+                <input type="password" id="geminiApiKey" placeholder="Enter your key" class="text-input">
+                <button id="saveApiKey" class="button primary">Save Key</button>
+                <button id="clearApiKey" class="button secondary">Clear Key</button>
+            </div>
+            <p class="api-status" id="apiStatus"></p>
+            <p class="api-note">Your API key is stored locally in your browser and is not sent to any server.</p>
+            <a href="https://ai.google.dev/">Gemini key</a>
+        </section>
+
+        <section class="content-generator card">
+            <h2>Generate Content</h2>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="askMeAnything">Ask Me Anything</button>
+                <button class="tab-button" data-tab="quickSummarizer">Quick Summarizer</button>
+                <button class="tab-button" data-tab="ideaSpark">Idea Spark</button>
+                <button class="tab-button" data-tab="definitionFinder">Definition Finder</button>
+            </div>
+
+            <div id="askMeAnything" class="tab-content active">
+                <h3>Ask Me Anything</h3>
+                <div class="input-group">
+                    <textarea id="amaInput" class="text-input textarea" placeholder="Type your question here..."></textarea>
+                    <button id="amaGenerate" class="button primary">Get Answer</button>
+                </div>
+            </div>
+
+            <div id="quickSummarizer" class="tab-content">
+                <h3>Quick Summarizer</h3>
+                <div class="input-group">
+                    <textarea id="summarizerInput" class="text-input textarea" placeholder="Paste text to summarize..."></textarea>
+                    <button id="summarizeGenerate" class="button primary">Summarize</button>
+                </div>
+            </div>
+
+            <div id="ideaSpark" class="tab-content">
+                <h3>Idea Spark</h3>
+                <div class="input-group">
+                    <textarea id="ideaInput" class="text-input textarea" placeholder="e.g., 'blog post ideas about AI', 'creative story prompts for sci-fi'..."></textarea>
+                    <button id="ideaGenerate" class="button primary">Spark Ideas</button>
+                </div>
+            </div>
+
+            <div id="definitionFinder" class="tab-content">
+                <h3>Definition Finder</h3>
+                <div class="input-group">
+                    <input type="text" id="definitionInput" class="text-input" placeholder="Enter a term to define...">
+                    <button id="definitionGenerate" class="button primary">Get Definition</button>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <h3>Generated Content</h3>
+                <div class="spinner" id="loadingSpinner"></div>
+                <div id="outputContent" class="output-box">
+                    <p>Your generated content will appear here.</p>
+                </div>
+                <button id="copyOutput" class="button secondary copy-button" style="display: none;">Copy to Clipboard</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 AI Content Generator. Built with modern JavaScript and Gemini API.</p>
+    </footer>
+
+    <script type="module" src="gemini.js"></script>
+</body>
+</html>

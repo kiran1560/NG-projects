@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Master</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+ <style>
+        .back-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            color: #dcdee0; 
+            text-decoration: none;
+            transition: color 0.3s ease; 
+        }
+        .back-icon:hover {
+            color: #0056b3; 
+        }
+    </style>
+<body>
+            <a href="javascript:history.back()" class="back-icon"  title="Go Back"><i class="fas fa-arrow-circle-left"></i></a>
+    <div class="quiz-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h1>Welcome to the Quiz Master!</h1>
+            <p>Test your knowledge with our fun and interactive quiz.</p>
+            <button id="start-quiz-btn" class="btn">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <h2 id="question-text"></h2>
+            <div id="answer-buttons" class="answer-buttons">
+                <!-- Answer buttons will be inserted here by JavaScript -->
+            </div>
+            <div class="quiz-footer">
+                <span id="question-number">Question 1 of 5</span>
+                <div id="progress-bar" class="progress-bar-container">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <h2>Quiz Complete!</h2>
+            <p id="score-text"></p>
+            <p id="feedback-text"></p>
+            <button id="restart-quiz-btn" class="btn">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
